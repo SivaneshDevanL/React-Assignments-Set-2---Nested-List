@@ -152,10 +152,14 @@ const states = [
   ];
 export default function Town({id,id1}){
     return(
+         <>
+        {typeof id1==='number'&&states[id].cities[id1].towns.length===2&&
         <>
-        {typeof id1==='number'&&states[id].cities[id1].towns.map((item,index)=>
-        <p id={index+1}>{item.name}</p>
-        )
+        <p id='town1'>{states[id].cities[id1].towns[0].name}</p>
+        <p id='town2'>{states[id].cities[id1].towns[1].name}</p></>
+        }
+                {typeof id1==='number'&&states[id].cities[id1].towns.length===1&&
+        <p id='town1'>{states[id].cities[id1].towns[0].name}</p>
         }
         </>
     )
